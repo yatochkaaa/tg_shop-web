@@ -7,7 +7,7 @@ import Form from "./components/Form/Form";
 import ProductList from "./components/ProductList/ProductList";
 
 const App = () => {
-  const { tg, onToggleButton } = useTelegram();
+  const { tg } = useTelegram();
 
   React.useEffect(() => {
     tg.ready();

@@ -42,13 +42,13 @@ const Form = () => {
         className="input"
         type="text"
         placeholder="Страна"
-        onChange={setCountry}
+        onChange={onChangeCountry}
       />
       <input
         className="input"
         type="text"
         placeholder="Улица"
-        onChange={setStreet}
+        onChange={onChangeStreet}
       />
       <select className="select" onChange={onChangeSubject}>
         <option value={"physical"}>Физ. лицо</option>
