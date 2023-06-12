@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./components/Header/Header";
 import { useTelegram } from "./hooks/useTelegram";
 import "./App.css";
 
@@ -11,6 +12,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Header />
       <button onClick={onToggleButton}>Toggle</button>
     </div>
   );
