@@ -20,7 +20,6 @@ const App = () => {
         <Route index element={<ProductList />} />
         <Route path="form" element={<Form />} />
       </Routes>
-      <button onClick={onToggleButton}>Toggle</button>
     </div>
   );
 };
