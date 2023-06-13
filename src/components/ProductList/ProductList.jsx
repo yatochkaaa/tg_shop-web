@@ -11,9 +11,39 @@ const getTotalPrice = (items = []) => {
 };
 
 const ProductList = () => {
-  const { tg } = useTelegram();
+  const { tg, queryId } = useTelegram();
 
   const [addedItems, setAddedItems] = React.useState([]);
+
+  const onSendData = React.useCallback(() => {
+    const data = {
+      queryId,
+      products: addedItems,
+      totalPrice: getTotalPrice(addedItems),
+    };
+
+    fetch("http://localhost:8000", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }, []);
+
+  React.useEffect(() => {
+    tg.MainButton.setParams({
+      text: "Отправить данные",
+    });
+  }, []);
+
+  React.useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   const onAdd = (product) => {
     const alreadyAdded = addedItems.find((item) => item.id === product.id);

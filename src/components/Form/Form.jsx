@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useTelegram } from "../../hooks/useTelegram";
 import "./Form.css";
 
@@ -9,7 +9,7 @@ const Form = () => {
   const [street, setStreet] = React.useState("");
   const [subject, setSubject] = React.useState("physical");
 
-  const onSendData = useCallback(() => {
+  const onSendData = React.useCallback(() => {
     const data = {
       country,
       street,
