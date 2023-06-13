@@ -39,9 +39,9 @@ const ProductList = () => {
 
   return (
     <div className="list">
-      {products.map((item) => {
-        <ProductItem product={item} className={"item"} onAdd={onAdd} />;
-      })}
+      {products.map((item) => (
+        <ProductItem product={item} className={"item"} onAdd={onAdd} />
+      ))}
     </div>
   );
 };
