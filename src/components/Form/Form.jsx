@@ -17,19 +17,21 @@ const Form = () => {
     };
 
     tg.sendData(JSON.stringify(data));
+  }, [country, street, subject]);
+
+  React.useEffect(() => {
+    tg.MainButton.setParams({
+      text: "Отправить данные",
+    });
   }, []);
 
   React.useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
 
-    tg.MainButton.setParams({
-      text: "Отправить данные",
-    });
-
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   React.useEffect(() => {
     if (!country || !street) {
