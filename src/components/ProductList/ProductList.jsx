@@ -32,12 +32,6 @@ const ProductList = () => {
   }, [addedItems]);
 
   React.useEffect(() => {
-    tg.MainButton.setParams({
-      text: "Отправить данные",
-    });
-  }, [onSendData]);
-
-  React.useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
 
     return () => {
