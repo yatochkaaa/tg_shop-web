@@ -22,20 +22,20 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
     };
 
-    fetch("http://localhost:8000", {
+    fetch("http://localhost:8000/web-data", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-  }, []);
+  }, [addedItems]);
 
   React.useEffect(() => {
     tg.MainButton.setParams({
       text: "Отправить данные",
     });
-  }, []);
+  }, [onSendData]);
 
   React.useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
